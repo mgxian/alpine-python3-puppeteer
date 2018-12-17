@@ -18,6 +18,8 @@ RUN apk add --no-cache --virtual .build-deps g++ python3-dev libffi-dev openssl-
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROME_PATH=/usr/lib/chromium/
 
 # Puppeteer v1.4.0 works with Chromium 68.
 RUN yarn add puppeteer@1.4.0
@@ -27,6 +29,9 @@ RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
     && mkdir -p /home/pptruser/Downloads /app \
     && chown -R pptruser:pptruser /home/pptruser \
     && chown -R pptruser:pptruser /app
+
+# PWD
+WORKDIR /app
 
 # Run everything after as non-privileged user.
 USER pptruser
