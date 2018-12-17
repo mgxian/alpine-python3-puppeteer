@@ -6,7 +6,9 @@ RUN apk update && apk upgrade && \
     echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
     apk add --no-cache \
       chromium@edge \
-      nss@edge
+      nss@edge \
+      freetype@edge \
+      harfbuzz@edge
 
 # Install Python 3
 COPY requirements.txt requirements.txt
