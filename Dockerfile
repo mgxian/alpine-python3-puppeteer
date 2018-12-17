@@ -11,7 +11,7 @@ RUN apk update && apk upgrade && \
 # Install Python 3
 COPY requirements.txt requirements.txt
 RUN apk add --no-cache --update python3 && \
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
