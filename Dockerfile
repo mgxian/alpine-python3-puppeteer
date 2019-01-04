@@ -13,7 +13,7 @@ RUN apk update && apk upgrade && \
 # Install Python 3
 COPY requirements.txt requirements.txt
 RUN apk add --no-cache --virtual .build-deps g++ python3-dev libffi libffi-dev openssl-dev && \
-    apk add --no-cache --update python3 && \
+    apk add --no-cache --update python3 ca-certificates && \
     pip3 install --trusted-host pypi.python.org -r requirements.txt
 
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
