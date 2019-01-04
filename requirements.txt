@@ -1,4 +1,4 @@
-cffi
+certifi
 requests
 oss2
 pymysql
