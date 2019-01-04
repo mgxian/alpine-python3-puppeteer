@@ -12,7 +12,7 @@ RUN apk update && apk upgrade && \
 
 # Install Python 3
 COPY requirements.txt requirements.txt
-RUN apk add --no-cache --virtual .build-deps g++ python3-dev libffi libffi-dev openssl-dev && \
+RUN apk add --no-cache --virtual .build-deps g++ python3-dev libffi libffi-dev libssl-dev openssl-dev && \
     apk add --no-cache --update python3 && \
     pip3 install -r requirements.txt
 
