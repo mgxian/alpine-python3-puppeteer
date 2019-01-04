@@ -1,3 +1,4 @@
+cffi
 requests
 oss2
 pymysql
